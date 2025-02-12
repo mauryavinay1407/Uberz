@@ -30,15 +30,17 @@ const userSchema = new mongoose.Schema({
     }
 })
 
+// it is methods because it is tied to a specific document
 userSchema.methods.generateAuthToken = function(){
     const token = jwt.sign({_id: this._id},process.env.JWT_SECRET, {expiresIn: '24h'});
     return token;
 }
-// it is statics because it uses an instance to compare password
+// it is statics because it is not tied to a specific document
 userSchema.statics.hashPassword = async function(password){
     return await bcrypt.hash(password,10); 
 }
 
+// it is methods because it is tied to a specific document
 userSchema.methods.comparePassword = async function(password) {
     return await bcrypt.compare(password,this.password);
 }
