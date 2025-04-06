@@ -1,13 +1,30 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useUser } from '../context/UserContext';
+import axios from "axios";
 
 const UserLogin = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const {user, setUser}  = useUser();
+  const navigate = useNavigate();
+
   const submitHandler = async (e) => {
     e.preventDefault();
-    console.log(email, password);
+    const userToLogin = {
+      email,
+      password
+    }
+    const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/users/login`,userToLogin);
+
+    if (response.status === 200) {
+      const data = response.data
+      setUser(data.user)
+      localStorage.setItem('token', data.token)
+      navigate('/home')
+    }
+
     setEmail('');
     setPassword('');
   };
@@ -52,7 +69,7 @@ const UserLogin = () => {
 
           <button
             type="submit"
-            className="w-full bg-black text-white text-lg font-medium py-2 rounded-md hover:bg-gray-900 transition"
+            className="w-full bg-black text-white text-lg font-medium py-2 rounded-md hover:bg-gray-900 transition cursor-pointer"
           >
             Login
           </button>

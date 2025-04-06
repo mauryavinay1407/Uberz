@@ -71,7 +71,7 @@ const loginUser = async (req, res, next) => {
   };
   res.cookie("token", token, options);
 
-  return res.status(201).json({ message: "Login successfully", token, user });
+  return res.status(200).json({ message: "Login successfully", token, user });
 }
 
 const getUserProfile = async(req,res)=>{
