@@ -32,17 +32,16 @@ const UserSignup = () => {
     };
 
     return (
-        <div className="h-screen w-full flex flex-col justify-center items-center bg-white px-4 py-6">
+        <div className="h-screen w-full flex flex-col items-center bg-white px-4 py-6">
             <div className="w-full max-w-md">
                 <img
-                    className="w-24 mb-[6rem]"
+                    className="w-24 mb-10"
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYQy-OIkA6In0fTvVwZADPmFFibjmszu2A0g&s"
                     alt="Uber logo"
                 />
 
-                <h2 className="text-2xl font-semibold mb-6">Create an Account</h2>
-
-                <form onSubmit={submitHandler}>
+                <form onSubmit={submitHandler} className="p-2">
+                <h3 className='text-lg w-1/2  font-medium mb-4'>What's your name</h3>
                     <div className="flex gap-4 mb-5">
                         <input
                             type="text"
@@ -62,6 +61,7 @@ const UserSignup = () => {
                         />
                     </div>
 
+                <h3 className='text-lg w-1/2  font-medium mb-4'>What's your email</h3>
                     <div className="flex mb-5">
                         <input
                             type="email"
@@ -73,6 +73,7 @@ const UserSignup = () => {
                         />
                     </div>
 
+                <h3 className='text-lg w-1/2  font-medium mb-4'>Enter Password</h3>
                     <div className="flex mb-6">
                         <input
                             type="password"

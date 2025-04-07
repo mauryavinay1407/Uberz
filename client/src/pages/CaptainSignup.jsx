@@ -54,12 +54,12 @@ const CaptainSignup = () => {
   }
 
   return (
-    <div className="py-5 px-5 h-screen flex flex-col justify-between max-w-4xl mx-auto">
+    <div className="h-screen w-full flex flex-col items-center bg-white px-4 py-6">
       <div>
-        <img className="w-20 mb-5" src="https://www.svgrepo.com/show/505031/uber-driver.svg" alt="logo" />
+        <img className="w-22 mb-2" src="https://www.svgrepo.com/show/505031/uber-driver.svg" alt="logo" />
 
         <form onSubmit={submitHandler}>
-          <h3 className="text-lg font-medium mb-2">What's our Captain's name</h3>
+          <h3 className="text-lg w-1/2 font-medium mb-2">What's our Captain's name</h3>
           <div className="flex gap-4 mb-7">
             <input
               required
